@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2013, 2017-2018 The Linux Foundation. All rights reserved.
+ * Copyright (C) 2019 XiaoMi, Inc.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -125,14 +126,15 @@ static int clk_branch_toggle(struct clk_hw *hw, bool en,
 		clk_disable_regmap(hw);
 	}
 
-	/*
-	 * Make sure enable/disable request goes through before waiting
-	 * for CLK_OFF status to get updated.
-	 */
+	/* Make sure enable/disable request goes through before waiting
+	* for CLK_OFF status to get updated.
+	*/
 	mb();
 
 	return clk_branch_wait(br, en, check_halt);
 }
+
+
 
 static int clk_branch_enable(struct clk_hw *hw)
 {
