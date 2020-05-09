@@ -13468,7 +13468,6 @@ static int wlan_hdd_state_ctrl_param_open(struct inode *inode,
 	return 0;
 }
 
-static int hdd_driver_load(void);
 static ssize_t wlan_hdd_state_ctrl_param_write(struct file *filp,
 						const char __user *user_buf,
 						size_t count,
@@ -13931,19 +13930,9 @@ static int wlan_deinit_sysfs(void)
 static int hdd_module_init(void)
 {
 	if (hdd_driver_load())
-		return -EINVAL;	
+		return -EINVAL;
 
 	return 0;
-}
-#else
-static int __init hdd_module_init(void)
-{
-	int ret = -EINVAL;
-
-	if (ret)
-		hdd_fln("Failed to create sysfs entry");
-
-	return ret;
 }
 #endif
 
