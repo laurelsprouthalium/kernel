@@ -511,7 +511,6 @@ int hdd_validate_channel_and_bandwidth(struct hdd_adapter *adapter,
 
 	return 0;
 }
-#ifdef MODULE
 
 #ifdef MODULE
 /**
