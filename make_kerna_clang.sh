@@ -49,7 +49,7 @@ make_zip()
 
 make clean && make mrproper
 PATH="/home/meltstrap/toolchains/proton_clang-11.0.0-20200117/bin:/home/meltstrap/toolchains/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin${PATH}"
-make O=output ARCH=arm64 vendor/lune_ipa3_defconfig
+make O=output ARCH=arm64 vendor/lune_defconfig
 make -j$(nproc --all) O=output ARCH=arm64 CC="ccache clang -fcolor-diagnostics -Qunused-arguments" CLANG_TRIPLE="aarch64-linux-gnu-" CROSS_COMPILE="/home/meltstrap/toolchains/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-"
 
 
