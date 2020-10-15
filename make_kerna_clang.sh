@@ -25,7 +25,7 @@ DATE=$(date +%Y%m%d-%H%M)
 
 export ARCH=arm64
 export SUBARCH=arm64
-export LD_LIBRARY_PATH=/home/meltstrap/toolchains/proton_clang-11.0.0-20200117/lib/
+export LD_LIBRARY_PATH=~/toolchains/proton_clang-11.0.0-20200117/lib/
 export USE_CCACHE=1
 
 make_zip()
@@ -48,9 +48,9 @@ make_zip()
 }
 
 make clean && make mrproper
-PATH="/home/meltstrap/toolchains/proton_clang-11.0.0-20200117/bin:/home/meltstrap/toolchains/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin${PATH}"
+PATH="~/toolchains/proton_clang-11.0.0-20200117/bin:~/toolchains/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin${PATH}"
 make O=output ARCH=arm64 vendor/lune_defconfig
-make -j$(nproc --all) O=output ARCH=arm64 CC="ccache clang -fcolor-diagnostics -Qunused-arguments" CLANG_TRIPLE="aarch64-linux-gnu-" CROSS_COMPILE="/home/meltstrap/toolchains/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-"
+make -j$(nproc --all) O=output ARCH=arm64 CC="ccache clang -fcolor-diagnostics -Qunused-arguments" CLANG_TRIPLE="aarch64-linux-gnu-" CROSS_COMPILE="~/toolchains/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-"
 
 
 make_zip
